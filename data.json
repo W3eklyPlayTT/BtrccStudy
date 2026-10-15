@@ -8,7 +8,8 @@
       "deviceSlots": 1,
       "devices": [
         "af33d2b31bea5625d5499c53e799552741ca68d1474553b0426379240017e997"
-      ]
+      ],
+      "lastLoginAt": 1792095630716
     },
     {
       "username": "test1",
@@ -20,6 +21,15 @@
     }
   ],
   "games": [
+    {
+      "id": "pacman",
+      "title": "Pacman",
+      "url": "/games/pacman/Pacman-Game-master/index.html",
+      "storage": "pacman",
+      "category": "Arcade",
+      "description": "Play pacman ig",
+      "color": "#7658ed"
+    },
     {
       "id": "snake",
       "title": "Snake",
