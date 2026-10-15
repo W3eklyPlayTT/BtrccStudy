@@ -16,7 +16,7 @@ Each game is kept in its own folder and is served from this Node.js app after lo
 
 Some original game pages include their own links, fonts, or analytics. Minesweeper loads several visual libraries from public CDNs.
 
-| Night Guard | https://github.com/floppyiphone99/Night-Guard | MIT (code; assets have separate attribution notes in its README) |
+| Five Nights at Freddy's 4 (web) | https://github.com/Apolancodelo/fnaf4-web | Source added with creator's permission; retains the original game's credits and disclaimer. |
 
 Minesweeper's Twemoji PNGs are bundled from https://github.com/twitter/twemoji (CC-BY 4.0); see the upstream asset license and source at https://github.com/twitter/twemoji.
 

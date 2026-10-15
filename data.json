@@ -93,12 +93,12 @@
       "color": "#194329"
     },
     {
-      "id": "night-guard",
-      "title": "Night Guard",
+      "id": "fnaf4",
+      "title": "Five Nights at Freddy's 4",
       "category": "Horror",
-      "url": "/games/night-guard/",
-      "description": "A browser-based, FNAF-inspired night-shift survival game. Watch cameras, manage power, and make it to 6 AM.",
-      "color": "#573d55"
+      "url": "/games/fnaf4/",
+      "description": "A browser version of FNAF 4. Listen carefully, check the doors, and survive the night.",
+      "color": "#542e31"
     }
   ]
 }
