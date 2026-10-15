@@ -99,6 +99,14 @@
       "url": "/games/fnaf4/",
       "description": "A browser version of FNAF 4. Listen carefully, check the doors, and survive the night.",
       "color": "#542e31"
+    },
+    {
+      "id": "eaglecraft",
+      "title": "EagleCraft",
+      "category": "Sandbox",
+      "url": "/games/eaglecraft/",
+      "description": "An unofficial browser sandbox game. WARNING: USE AT YOUR OWN RISK.",
+      "color": "#71552f"
     }
   ]
 }

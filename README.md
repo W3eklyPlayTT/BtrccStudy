@@ -18,6 +18,6 @@ The app opens to a full-screen dark calculator. Enter `1010` on the keypad or ke
 
 ## Included games
 
-The local library includes Snake, Snake Neon, Flappy Bird, 2048, Tetris, Pong, Breakout, Minesweeper, Space Invaders, and Five Nights at Freddy's 4 (web version). Each game has its own folder in `public/games/`; source links and license notes are in [public/games/README.md](public/games/README.md). The game URLs are protected by the login session.
+The local library includes Snake, Snake Neon, Flappy Bird, 2048, Tetris, Pong, Breakout, Minesweeper, Space Invaders, Five Nights at Freddy's 4 (web version), and EagleCraft. EagleCraft opens on a warning page that says “WARNING: USE AT YOUR OWN RISK” before launching the supplied offline game file. Each game has its own folder in `public/games/`; source links and license notes are in [public/games/README.md](public/games/README.md). The game URLs are protected by the login session.
 
 Game websites may prevent embedding in an iframe. In that case, add a webpage made to allow embedding or adapt the game page to launch externally.

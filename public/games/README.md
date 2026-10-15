@@ -17,6 +17,7 @@ Each game is kept in its own folder and is served from this Node.js app after lo
 Some original game pages include their own links, fonts, or analytics. Minesweeper loads several visual libraries from public CDNs.
 
 | Five Nights at Freddy's 4 (web) | https://github.com/Apolancodelo/fnaf4-web | Source added with creator's permission; retains the original game's credits and disclaimer. |
+| EagleCraft | User-supplied `EaglercraftX_1.8_u32_Offline_Signed.html` | User-provided offline HTML; launch page displays a use-at-own-risk warning. |
 
 Minesweeper's Twemoji PNGs are bundled from https://github.com/twitter/twemoji (CC-BY 4.0); see the upstream asset license and source at https://github.com/twitter/twemoji.
 
