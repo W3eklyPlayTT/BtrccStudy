@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "role": "admin",
+      "plan": "lifetime",
+      "deviceSlots": 1,
+      "devices": [
+        "af33d2b31bea5625d5499c53e799552741ca68d1474553b0426379240017e997"
+      ]
+    },
+    {
+      "username": "test1",
+      "password": "1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014",
+      "role": "user",
+      "plan": "none",
+      "deviceSlots": 1,
+      "devices": []
+    }
+  ],
+  "games": [
+    {
+      "id": "snake",
+      "title": "Snake",
+      "category": "Arcade",
+      "url": "/games/snake/",
+      "description": "Guide the snake, collect fruit, and beat your best score.",
+      "color": "#183c35"
+    },
+    {
+      "id": "flappy-bird",
+      "title": "Flappy Bird",
+      "category": "Arcade",
+      "url": "/games/flappy-bird/",
+      "description": "Flap through the pipes and chase a new high score.",
+      "color": "#4b9ad8"
+    },
+    {
+      "id": "2048",
+      "title": "2048",
+      "category": "Puzzle",
+      "url": "/games/2048/",
+      "description": "Slide tiles, combine matching numbers, and reach 2048.",
+      "color": "#d7a568"
+    },
+    {
+      "id": "tetris",
+      "title": "Tetris",
+      "category": "Puzzle",
+      "url": "/games/tetris/",
+      "description": "Fit falling blocks together and clear complete lines.",
+      "color": "#5949ad"
+    },
+    {
+      "id": "pong",
+      "title": "Pong",
+      "category": "Sports",
+      "url": "/games/pong/",
+      "description": "A quick classic paddle match against the computer.",
+      "color": "#196b65"
+    },
+    {
+      "id": "breakout",
+      "title": "Breakout",
+      "category": "Arcade",
+      "url": "/games/breakout/",
+      "description": "Bounce the ball, break the wall, and clear each level.",
+      "color": "#bd593b"
+    },
+    {
+      "id": "minesweeper",
+      "title": "Minesweeper",
+      "category": "Puzzle",
+      "url": "/games/minesweeper/",
+      "description": "Uncover safe squares and mark every hidden mine.",
+      "color": "#4d7166"
+    },
+    {
+      "id": "space-invaders",
+      "title": "Space Invaders",
+      "category": "Arcade",
+      "url": "/games/space-invaders/",
+      "description": "Defend the planet from an incoming alien wave.",
+      "color": "#343b66"
+    },
+    {
+      "id": "snake-plus",
+      "title": "Snake Neon",
+      "category": "Arcade",
+      "url": "/games/snake-plus/",
+      "description": "A neon take on the classic Snake game.",
+      "color": "#194329"
+    },
+    {
+      "id": "night-guard",
+      "title": "Night Guard",
+      "category": "Horror",
+      "url": "/games/night-guard/",
+      "description": "A browser-based, FNAF-inspired night-shift survival game. Watch cameras, manage power, and make it to 6 AM.",
+      "color": "#573d55"
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Guard - Horror Game</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="game-container">
+        <!-- Main Menu -->
+        <div id="menu" class="screen active">
+            <h1>NIGHT GUARD</h1>
+            <div id="character-image" style="display: none;">
+                <div style="font-size: 4rem; margin: 20px 0;">👤</div>
+                <p style="color: #ffd93d;">Ultimate Champion</p>
+            </div>
+            <p>Can you survive until 6 AM?</p>
+            <div id="progress-display">Current Progress: Night <span id="current-night-display">1</span></div>
+            <div id="achievements-display">
+                <div id="achievement-night5" class="achievement">✅ Survived Night 5</div>
+                <div id="achievement-night6" class="achievement">✅ Survived Night 6 (Extreme)</div>
+                <div id="achievement-night7" class="achievement">✅✅✅ Survived Night 7 Level 35</div>
+            </div>
+            <button id="start-btn">Continue Game</button>
+            <button id="new-game-btn">New Game</button>
+            <button id="instructions-btn">Instructions</button>
+            <button id="customize-btn">Customize Your Game</button>
+        </div>
+
+        <!-- Instructions Screen -->
+        <div id="instructions" class="screen">
+            <h2>Instructions</h2>
+            <p>You are a night security guard at an abandoned facility.</p>
+            <p>- Use cameras to monitor the facility</p>
+            <p>- Close doors to protect yourself</p>
+            <p>- Manage your power carefully</p>
+            <p>- Survive until 6 AM</p>
+            <button id="back-btn">Back to Menu</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game" class="screen">
+            <!-- Office View -->
+            <div id="office-view" class="view active">
+                <div id="office-bg"></div>
+                <div id="left-door" class="door">
+                    <button id="left-door-btn" class="door-btn">Close Left Door</button>
+                    <button id="left-light-btn" class="light-btn">Left Light</button>
+                </div>
+                <div id="right-door" class="door">
+                    <button id="right-door-btn" class="door-btn">Close Right Door</button>
+                    <button id="right-light-btn" class="light-btn">Right Light</button>
+                </div>
+                <button id="camera-btn" class="control-btn">View Cameras</button>
+            </div>
+
+            <!-- Camera View -->
+            <div id="camera-view" class="view">
+                <div id="camera-screen">
+                    <div id="camera-feed"></div>
+                    <div id="static-overlay"></div>
+                </div>
+                <div id="camera-controls">
+                    <button class="cam-btn" data-cam="1">CAM 1 - Entrance</button>
+                    <button class="cam-btn" data-cam="2">CAM 2 - Hallway</button>
+                    <button class="cam-btn" data-cam="3">CAM 3 - Storage</button>
+                    <button class="cam-btn" data-cam="4">CAM 4 - Kitchen</button>
+                </div>
+                <button id="close-cameras" class="control-btn">Close Cameras</button>
+            </div>
+
+            <!-- HUD -->
+            <div id="hud">
+                <div id="time">12:00 AM</div>
+                <div id="power">Power: 100%</div>
+                <div id="night">Night 1</div>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="game-over" class="overlay">
+                <h2>GAME OVER</h2>
+                <p>You didn't survive the night...</p>
+                <button id="restart-btn">Try Again</button>
+                <button id="menu-btn">Main Menu</button>
+            </div>
+
+            <!-- Win Screen -->
+            <div id="win-screen" class="overlay">
+                <h2>6 AM</h2>
+                <p>You survived the night!</p>
+                <button id="next-night-btn">Next Night</button>
+                <button id="menu-btn2">Main Menu</button>
+            </div>
+
+            <!-- Night 7 Custom AI Setup -->
+            <div id="custom-ai-screen" class="overlay">
+                <h2>Night 7 - Custom Challenge</h2>
+                <p>Set the AI aggressiveness for each entity (1-35)</p>
+                <p style="color: #ffd93d; font-size: 0.9rem;">Level 35 = 5x harder than Night 6!</p>
+                <div class="ai-controls">
+                    <div class="ai-setting">
+                        <label for="shadow-ai">Shadow Entity:</label>
+                        <input type="range" id="shadow-ai" min="1" max="35" value="1">
+                        <span id="shadow-value">1</span>
+                    </div>
+                    <div class="ai-setting">
+                        <label for="whisper-ai">Whisper Ghost:</label>
+                        <input type="range" id="whisper-ai" min="1" max="35" value="1">
+                        <span id="whisper-value">1</span>
+                    </div>
+                </div>
+                <button id="start-custom-night">Start Night 7</button>
+                <button id="cancel-custom">Back to Menu</button>
+            </div>
+
+            </div>
+
+        <!-- Customize Game Screen -->
+        <div id="customize-screen" class="overlay">
+            <div class="customize-container">
+                <h2>🎨 Customize Your Game</h2>
+                <div class="customize-tabs">
+                    <button class="tab-btn active" data-tab="visual">Visual Mods</button>
+                    <button class="tab-btn" data-tab="gameplay">Gameplay Mods</button>
+                    <button class="tab-btn" data-tab="entities">Entity Manager</button>
+                    <button class="tab-btn" data-tab="cameras">Camera Manager</button>
+                    <button class="tab-btn" data-tab="ai-code">AI Code Generator</button>
+                    <button class="tab-btn" data-tab="export">Export Game</button>
+                </div>
+
+                <!-- Visual Customization Tab -->
+                <div id="visual-tab" class="tab-content active">
+                    <h3>🖼️ Visual Customization</h3>
+                    <div class="mod-section">
+                        <h4>Office Background</h4>
+                        <select id="office-theme">
+                            <option value="default">Default Dark Office</option>
+                            <option value="abandoned">Abandoned Factory</option>
+                            <option value="modern">Modern Security Room</option>
+                            <option value="retro">Retro 80s Style</option>
+                        </select>
+                    </div>
+                    <div class="mod-section">
+                        <h4>UI Color Scheme</h4>
+                        <div class="color-picker-group">
+                            <label>Primary Color: <input type="color" id="primary-color" value="#ff6b6b"></label>
+                            <label>Secondary Color: <input type="color" id="secondary-color" value="#4ecdc4"></label>
+                            <label>Text Color: <input type="color" id="text-color" value="#ffffff"></label>
+                        </div>
+                    </div>
+                    <div class="mod-section">
+                        <h4>Camera Names</h4>
+                        <div class="camera-names">
+                            <input type="text" id="cam1-name" placeholder="Camera 1 Name" value="Main Entrance">
+                            <input type="text" id="cam2-name" placeholder="Camera 2 Name" value="East Hallway">
+                            <input type="text" id="cam3-name" placeholder="Camera 3 Name" value="Storage Room">
+                            <input type="text" id="cam4-name" placeholder="Camera 4 Name" value="Kitchen Area">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gameplay Customization Tab -->
+                <div id="gameplay-tab" class="tab-content">
+                    <h3>⚙️ Gameplay Modifications</h3>
+                    <div class="mod-section">
+                        <h4>Game Settings</h4>
+                        <label>Power Drain Rate: <input type="range" id="power-drain" min="0.5" max="3" step="0.1" value="1"></label>
+                        <label>Entity Speed: <input type="range" id="entity-speed" min="0.5" max="2" step="0.1" value="1"></label>
+                        <label>Night Duration (minutes): <input type="number" id="night-duration" min="1" max="30" value="6"></label>
+                    </div>
+                    <div class="mod-section">
+                        <h4>Entity Names</h4>
+                        <input type="text" id="entity1-name" placeholder="Entity 1 Name" value="Shadow Entity">
+                        <input type="text" id="entity2-name" placeholder="Entity 2 Name" value="Whisper Ghost">
+                    </div>
+                    <div class="mod-section">
+                        <h4>Custom Sounds</h4>
+                        <div class="sound-uploads">
+                            <label>Jumpscare Sound: <input type="file" id="jumpscare-upload" accept="audio/*"></label>
+                            <label>Door Sound: <input type="file" id="door-upload" accept="audio/*"></label>
+                            <label>Ambiance: <input type="file" id="ambiance-upload" accept="audio/*"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entity Manager Tab -->
+                <div id="entities-tab" class="tab-content">
+                    <h3>👻 Entity Management</h3>
+                    
+                    <!-- Current Entities List -->
+                    <div class="mod-section">
+                        <h4>Current Entities</h4>
+                        <div id="entities-list" class="entities-container">
+                            <!-- Entities will be populated by JavaScript -->
+                        </div>
+                        <button id="add-entity-btn" class="add-btn">+ Add New Entity</button>
+                    </div>
+
+                    <!-- Entity Editor -->
+                    <div id="entity-editor" class="mod-section" style="display: none;">
+                        <h4>Edit Entity</h4>
+                        <div class="entity-form">
+                            <label>Entity ID: <input type="text" id="entity-id" placeholder="unique-id"></label>
+                            <label>Display Name: <input type="text" id="entity-name" placeholder="Entity Name"></label>
+                            <label>Description: <textarea id="entity-description" placeholder="Describe this entity's behavior..."></textarea></label>
+                            
+                            <h5>Behavior Settings</h5>
+                            <label>Base Aggressiveness: <input type="range" id="entity-aggression" min="0.1" max="5" step="0.1" value="1"> <span id="aggression-value">1</span></label>
+                            <label>Move Speed: <input type="range" id="entity-speed" min="0.5" max="3" step="0.1" value="1"> <span id="speed-value">1</span></label>
+                            <label>Starting Camera: <select id="entity-start-cam"></select></label>
+                            
+                            <h5>Appearance</h5>
+                            <label>Entity Color: <input type="color" id="entity-color" value="#ff6b6b"></label>
+                            <label>Entity Symbol: <input type="text" id="entity-symbol" placeholder="👻" maxlength="2"></label>
+                            
+                            <h5>Special Abilities</h5>
+                            <div class="abilities-grid">
+                                <label><input type="checkbox" id="can-teleport"> Can Teleport</label>
+                                <label><input type="checkbox" id="drains-power"> Drains Power When Near</label>
+                                <label><input type="checkbox" id="invisible-cameras"> Invisible on Cameras</label>
+                                <label><input type="checkbox" id="door-hacker"> Can Hack Doors</label>
+                                <label><input type="checkbox" id="light-immunity"> Light Immunity</label>
+                                <label><input type="checkbox" id="camera-jammer"> Jams Camera Feed</label>
+                            </div>
+                            
+                            <h5>Movement Pattern</h5>
+                            <select id="movement-pattern">
+                                <option value="random">Random Movement</option>
+                                <option value="aggressive">Aggressive (Towards Player)</option>
+                                <option value="patrol">Patrol Route</option>
+                                <option value="stalker">Stalker (Follows Player View)</option>
+                                <option value="ambush">Ambush (Waits at Doors)</option>
+                            </select>
+                            
+                            <div class="entity-actions">
+                                <button id="save-entity">Save Entity</button>
+                                <button id="cancel-entity">Cancel</button>
+                                <button id="delete-entity" style="background: #ff6b6b;">Delete Entity</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Camera Manager Tab -->
+                <div id="cameras-tab" class="tab-content">
+                    <h3>📹 Camera Management</h3>
+                    
+                    <!-- Current Cameras List -->
+                    <div class="mod-section">
+                        <h4>Current Cameras</h4>
+                        <div id="cameras-list" class="cameras-container">
+                            <!-- Cameras will be populated by JavaScript -->
+                        </div>
+                        <button id="add-camera-btn" class="add-btn">+ Add New Camera</button>
+                    </div>
+
+                    <!-- Camera Editor -->
+                    <div id="camera-editor" class="mod-section" style="display: none;">
+                        <h4>Edit Camera</h4>
+                        <div class="camera-form">
+                            <label>Camera ID: <input type="number" id="camera-id" min="1" max="20" placeholder="5"></label>
+                            <label>Camera Name: <input type="text" id="camera-name" placeholder="New Area"></label>
+                            <label>Location Description: <textarea id="camera-description" placeholder="Describe this camera location..."></textarea></label>
+                            
+                            <h5>Camera Settings</h5>
+                            <label>Power Drain: <input type="range" id="camera-power" min="0.5" max="3" step="0.1" value="1"> <span id="power-value">1</span>x</label>
+                            <label>Image Quality: 
+                                <select id="camera-quality">
+                                    <option value="high">High Quality</option>
+                                    <option value="medium">Medium Quality</option>
+                                    <option value="low">Low Quality (Grainy)</option>
+                                    <option value="broken">Broken/Static</option>
+                                </select>
+                            </label>
+                            
+                            <h5>Connected Areas</h5>
+                            <div id="connections-list">
+                                <p>Entities can move between connected cameras</p>
+                                <div id="camera-connections"></div>
+                                <button type="button" id="add-connection">+ Add Connection</button>
+                            </div>
+                            
+                            <h5>Special Features</h5>
+                            <div class="camera-features-grid">
+                                <label><input type="checkbox" id="motion-sensor"> Motion Sensor Alert</label>
+                                <label><input type="checkbox" id="night-vision"> Night Vision Mode</label>
+                                <label><input type="checkbox" id="audio-pickup"> Audio Pickup</label>
+                                <label><input type="checkbox" id="remote-door"> Remote Door Control</label>
+                                <label><input type="checkbox" id="emergency-light"> Emergency Light</label>
+                                <label><input type="checkbox" id="backup-power"> Backup Power Source</label>
+                            </div>
+                            
+                            <div class="camera-actions">
+                                <button id="save-camera">Save Camera</button>
+                                <button id="cancel-camera">Cancel</button>
+                                <button id="delete-camera" style="background: #ff6b6b;">Delete Camera</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Code Generator Tab -->
+                <div id="ai-code-tab" class="tab-content">
+                    <h3>🤖 AI Feature Generator</h3>
+                    <div class="ai-generator">
+                        <div class="prompt-area">
+                            <h4>Describe the feature you want to add:</h4>
+                            <textarea id="ai-prompt" placeholder="Example: Add a flashlight mechanic that drains battery but lets you see entities in dark areas..."></textarea>
+                            <button id="generate-feature">Generate Feature</button>
+                        </div>
+                        <div class="generated-code">
+                            <h4>Generated Code:</h4>
+                            <div class="code-tabs">
+                                <button class="code-tab-btn active" data-code-tab="html">HTML</button>
+                                <button class="code-tab-btn" data-code-tab="css">CSS</button>
+                                <button class="code-tab-btn" data-code-tab="js">JavaScript</button>
+                            </div>
+                            <div class="code-content">
+                                <pre id="generated-html" class="code-block active"></pre>
+                                <pre id="generated-css" class="code-block"></pre>
+                                <pre id="generated-js" class="code-block"></pre>
+                            </div>
+                            <div class="code-actions">
+                                <button id="apply-generated-code">Apply to Game</button>
+                                <button id="copy-generated-code">Copy Code</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Tab -->
+                <div id="export-tab" class="tab-content">
+                    <h3>📦 Export Your Custom Game</h3>
+                    <div class="export-options">
+                        <div class="export-option">
+                            <h4>Full HTML5 Game (ZIP)</h4>
+                            <p>Export complete game with all customizations as standalone HTML5 files</p>
+                            <button id="export-full-game">Export Full Game</button>
+                        </div>
+                        <div class="export-option">
+                            <h4>Mod Configuration (XML)</h4>
+                            <p>Export only your customizations as a mod file (no assets)</p>
+                            <button id="export-mod-config">Export Mod Config</button>
+                        </div>
+                        <div class="export-option">
+                            <h4>Import Mod Configuration</h4>
+                            <input type="file" id="import-mod" accept=".xml" style="display: none;">
+                            <button id="import-mod-btn">Import Mod</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="customize-actions">
+                    <button id="apply-customizations">Apply Changes</button>
+                    <button id="reset-customizations">Reset to Default</button>
+                    <button id="close-customize">Back to Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="ambient-sound" loop>
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvGUcBj+a2/LDciUFLIHO8tiJOQcZaLvt559NEAxQp+PwtmMcBjiR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvGUcBj+a2/LDciUFLIHO8tiJOQcZaLvt559NEAxQp+PwtmMcBjiR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvGUcBj+a2/LDciUFLIHO8tiJOQcZaLvt559NEAxQp+PwtmMcBjiR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvGUcBj+a2/LDciUFLIHO8tiJOQcZaLvt559NEAxQp+PwtmMcBjiR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvGUcBj+a2/LDciUFLIHO8tiJOQcZaLvt559NEAxQp+PwtmMcBjiR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvGUcBj+a2/LDciUFLIHO8tiJOQcZaLvt559NEAxQp+PwtmMcBjiR1/LNeSsFJHfH8N2QQAoUXrTp66hVFAlGn+DyvGUcBj+a2/LDciUFLIHO8tiJOQcZaLvt559NEAxQp+PwtmMcBjiR1/LNeSsFJHfH8N2QQAoUXrTp66hVFAlGn+DyvGUcBj+a2/LDciUFLIHO8tiJOQcZaLvt55" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

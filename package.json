@@ -1,0 +1,9 @@
+{
+  "name": "btrccgames",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BtrccGames browser games hub",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
