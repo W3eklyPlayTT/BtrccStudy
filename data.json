@@ -118,6 +118,15 @@
       "description": "An unofficial browser sandbox game. WARNING: USE AT YOUR OWN RISK.",
       "color": "#71552f",
       "logo": "/games/eaglecraft/logo.png"
+    },
+    {
+      "id": "baldis-basics",
+      "title": "Baldi's Basics",
+      "category": "Adventure",
+      "url": "/games/baldis-basics/",
+      "description": "Explore the schoolhouse, collect notebooks, and find your way out.",
+      "color": "#2e6940",
+      "logo": "/games/baldis-basics/favicon.ico"
     }
   ]
 }

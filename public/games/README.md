@@ -18,6 +18,7 @@ Some original game pages include their own links, fonts, or analytics. Minesweep
 
 | Five Nights at Freddy's 4 (web) | https://github.com/Apolancodelo/fnaf4-web | Source added with creator's permission; retains the original game's credits and disclaimer. |
 | EagleCraft | User-supplied `EaglercraftX_1.8_u32_Offline_Signed.html` | User-provided offline HTML; launch page displays a use-at-own-risk warning. |
+| Baldi's Basics | https://github.com/ripjaw1219/baldis-basics-html5-edition | No license file included in the source repository; attribution retained. The local page embeds the original externally hosted game. |
 
 Minesweeper's Twemoji PNGs are bundled from https://github.com/twitter/twemoji (CC-BY 4.0); see the upstream asset license and source at https://github.com/twitter/twemoji.
 
