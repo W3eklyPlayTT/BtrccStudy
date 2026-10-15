@@ -24,4 +24,4 @@ Minesweeper's Twemoji PNGs are bundled from https://github.com/twitter/twemoji (
 
 ## Game card logos
 
-The game hub shows icon tiles without visible names. Until you add artwork, each tile uses a placeholder emoji. Add a `logo.png` inside a game's folder, such as `public/games/snake/logo.png`, and the hub will show it automatically. The game title stays available to screen readers and in the hover tooltip.
+Game tiles use artwork in each game's `logo.png` file or the URL in that game's `logo` field in `data.json`. The local icons use artwork already bundled with the games. The linked wordmarks are hosted by [Wikimedia Commons for Tetris](https://commons.wikimedia.org/wiki/File:Tetris_logo.png) and [FNAF 4](https://commons.wikimedia.org/wiki/File:FiveNightsAtFreddys_4_Logo.png), [Seeklogo for Pong](https://seeklogo.com/vector-logo/438122/pong), and [Square Enix for Space Invaders](https://web.hd.square-enix.com/jpn/group/digitalentertainment.html). The game title remains available to screen readers and in the hover tooltip.

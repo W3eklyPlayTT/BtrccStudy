@@ -2,7 +2,6 @@ const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 let state = { loggedIn: false, role: null, username: null, games: [], category: 'All' };
 const palette = ['#e4eaff', '#ffe5ee', '#fff0c9', '#dcf5e7', '#e9e1ff', '#d9f2f4'];
-const emoji = ['🎮', '👾', '🚀', '🧩', '🏎️', '⚽', '🕹️', '🐉', '🏆'];
 function api(path, options = {}) {
   const headers = { ...(options.body ? { 'Content-Type': 'application/json' } : {}), ...(options.headers || {}) };
   return fetch(path, { credentials: 'same-origin', ...options, headers }).then(async r => { const data = await r.json().catch(() => ({})); if (!r.ok) throw Object.assign(new Error(data.error || 'Something went wrong.'), { status: r.status, data }); return data; });
@@ -23,7 +22,7 @@ function esc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;
 function renderGames() {
   const search = $('#search').value.trim().toLowerCase();
   const games = state.games.filter(g => (state.category === 'All' || g.category === state.category) && `${g.title} ${g.description} ${g.category}`.toLowerCase().includes(search));
-  $('#game-grid').innerHTML = games.length ? games.map((g, i) => `<a class="game-card-tile" data-game="${esc(g.id)}" href="${esc(g.url || '#')}" target="_blank" rel="noopener noreferrer" aria-label="Play ${esc(g.title)}" title="${esc(g.title)}"><div class="game-thumb" style="--game-color:${/^#[\da-f]{6}$/i.test(g.color) ? g.color : palette[i % palette.length]}"><span class="game-emoji" aria-hidden="true">${emoji[i % emoji.length]}</span><img class="game-logo" src="${esc(g.logo || '/games/' + encodeURIComponent(g.id) + '/logo.png')}" alt="" aria-hidden="true" onload="this.parentElement.classList.add('has-logo')" onerror="this.remove()"><span class="game-play" aria-hidden="true">▶</span></div><span class="sr-only">${esc(g.title)}</span></a>`).join('') : `<div class="empty-state">No games found yet. Add a game from the admin panel.</div>`;
+  $('#game-grid').innerHTML = games.length ? games.map((g, i) => `<a class="game-card-tile" data-game="${esc(g.id)}" href="${esc(g.url || '#')}" target="_blank" rel="noopener noreferrer" aria-label="Play ${esc(g.title)}" title="${esc(g.title)}"><div class="game-thumb" style="--game-color:${/^#[\da-f]{6}$/i.test(g.color) ? g.color : palette[i % palette.length]}"><span class="game-fallback" aria-hidden="true">${esc((g.title || '?').trim().slice(0, 1))}</span><img class="game-logo" src="${esc(g.logo || '/games/' + encodeURIComponent(g.id) + '/logo.png')}" alt="" aria-hidden="true" onload="this.parentElement.classList.add('has-logo')" onerror="this.remove()"><span class="game-play" aria-hidden="true">▶</span></div><span class="sr-only">${esc(g.title)}</span></a>`).join('') : `<div class="empty-state">No games found yet. Add a game from the admin panel.</div>`;
 }
 async function refresh() {
   const s = await api('/api/session'); state.loggedIn = s.loggedIn; state.username = s.username; state.role = s.role; state.plan = s.plan; state.deviceSlots = s.deviceSlots;

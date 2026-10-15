@@ -26,7 +26,8 @@
       "category": "Arcade",
       "url": "/games/snake/",
       "description": "Guide the snake, collect fruit, and beat your best score.",
-      "color": "#183c35"
+      "color": "#183c35",
+      "logo": "/games/snake/logo.png"
     },
     {
       "id": "flappy-bird",
@@ -34,7 +35,8 @@
       "category": "Arcade",
       "url": "/games/flappy-bird/",
       "description": "Flap through the pipes and chase a new high score.",
-      "color": "#4b9ad8"
+      "color": "#4b9ad8",
+      "logo": "/games/flappy-bird/logo.png"
     },
     {
       "id": "2048",
@@ -42,7 +44,8 @@
       "category": "Puzzle",
       "url": "/games/2048/",
       "description": "Slide tiles, combine matching numbers, and reach 2048.",
-      "color": "#d7a568"
+      "color": "#d7a568",
+      "logo": "/games/2048/logo.png"
     },
     {
       "id": "tetris",
@@ -50,7 +53,8 @@
       "category": "Puzzle",
       "url": "/games/tetris/",
       "description": "Fit falling blocks together and clear complete lines.",
-      "color": "#5949ad"
+      "color": "#5949ad",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/46/Tetris_logo.png"
     },
     {
       "id": "pong",
@@ -58,7 +62,8 @@
       "category": "Sports",
       "url": "/games/pong/",
       "description": "A quick classic paddle match against the computer.",
-      "color": "#196b65"
+      "color": "#196b65",
+      "logo": "https://images.seeklogo.com/logo-png/43/1/pong-logo-png_seeklogo-438122.png"
     },
     {
       "id": "breakout",
@@ -66,7 +71,8 @@
       "category": "Arcade",
       "url": "/games/breakout/",
       "description": "Bounce the ball, break the wall, and clear each level.",
-      "color": "#bd593b"
+      "color": "#bd593b",
+      "logo": "/games/breakout/logo.png"
     },
     {
       "id": "minesweeper",
@@ -74,7 +80,8 @@
       "category": "Puzzle",
       "url": "/games/minesweeper/",
       "description": "Uncover safe squares and mark every hidden mine.",
-      "color": "#4d7166"
+      "color": "#4d7166",
+      "logo": "/games/minesweeper/logo.png"
     },
     {
       "id": "space-invaders",
@@ -82,7 +89,8 @@
       "category": "Arcade",
       "url": "/games/space-invaders/",
       "description": "Defend the planet from an incoming alien wave.",
-      "color": "#343b66"
+      "color": "#343b66",
+      "logo": "https://web.hd.square-enix.com/jpn/group/Invaders_logo_de.png"
     },
     {
       "id": "snake-plus",
@@ -90,7 +98,8 @@
       "category": "Arcade",
       "url": "/games/snake-plus/",
       "description": "A neon take on the classic Snake game.",
-      "color": "#194329"
+      "color": "#194329",
+      "logo": "/games/snake-plus/logo.png"
     },
     {
       "id": "fnaf4",
@@ -98,7 +107,8 @@
       "category": "Horror",
       "url": "/games/fnaf4/",
       "description": "A browser version of FNAF 4. Listen carefully, check the doors, and survive the night.",
-      "color": "#542e31"
+      "color": "#542e31",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/FiveNightsAtFreddys_4_Logo.png/665px-FiveNightsAtFreddys_4_Logo.png"
     },
     {
       "id": "eaglecraft",
@@ -106,7 +116,8 @@
       "category": "Sandbox",
       "url": "/games/eaglecraft/",
       "description": "An unofficial browser sandbox game. WARNING: USE AT YOUR OWN RISK.",
-      "color": "#71552f"
+      "color": "#71552f",
+      "logo": "/games/eaglecraft/logo.png"
     }
   ]
 }
