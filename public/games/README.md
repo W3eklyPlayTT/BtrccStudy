@@ -20,3 +20,7 @@ Some original game pages include their own links, fonts, or analytics. Minesweep
 
 Minesweeper's Twemoji PNGs are bundled from https://github.com/twitter/twemoji (CC-BY 4.0); see the upstream asset license and source at https://github.com/twitter/twemoji.
 
+
+## Game card logos
+
+The game hub shows icon tiles without visible names. Until you add artwork, each tile uses a placeholder emoji. Add a `logo.png` inside a game's folder, such as `public/games/snake/logo.png`, and the hub will show it automatically. The game title stays available to screen readers and in the hover tooltip.
