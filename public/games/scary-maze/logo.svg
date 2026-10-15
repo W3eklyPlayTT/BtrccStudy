@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Scary Maze">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#202a39"/>
+      <stop offset="1" stop-color="#10141d"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="82" fill="url(#bg)"/>
+  <rect x="48" y="48" width="416" height="416" rx="52" fill="#151b25" stroke="#34445a" stroke-width="8"/>
+  <path d="M112 126h126v72h84v-72h72v126h-86v82h86v70H264v-82h-78v82h-74V274h82v-76h-82z" fill="none" stroke="#93b7d5" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M370 352h32" stroke="#ff5e67" stroke-width="18" stroke-linecap="round" filter="url(#glow)"/>
+  <circle cx="402" cy="352" r="14" fill="#ff5e67"/>
+</svg>

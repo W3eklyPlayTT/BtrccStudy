@@ -127,6 +127,15 @@
       "description": "Explore the schoolhouse, collect notebooks, and find your way out.",
       "color": "#2e6940",
       "logo": "/games/baldis-basics/favicon.ico"
+    },
+    {
+      "id": "scary-maze",
+      "title": "Scary Maze",
+      "category": "Arcade",
+      "url": "/games/scary-maze/",
+      "description": "Guide your cursor through the maze without touching the walls.",
+      "color": "#29374b",
+      "logo": "/games/scary-maze/logo.svg"
     }
   ]
 }
