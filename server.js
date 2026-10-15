@@ -155,7 +155,7 @@ const server = http.createServer(async (req, res) => {
   }
   let decodedPath; try { decodedPath = decodeURIComponent(url.pathname); } catch { return send(res, 400, 'Bad request'); }
   if (decodedPath.startsWith('/games/')) {
-    if (!userFor(req).user) return send(res, 401, '<!doctype html><meta charset="utf-8"><title>Nuh uh buddy</title><style>body{margin:0;background:#101015;color:#f4f1fa;font:600 20px system-ui;display:grid;place-items:center;height:100vh;text-align:center}.hint{font:14px system-ui;color:#aaa}</style><main>Nuh uh buddy.<p class="hint">Log in to BtrccGames to play. Go back to the home page and enter 1010.</p></main>', 'text/html; charset=utf-8');
+    if (!userFor(req).user) return send(res, 401, '<!doctype html><meta charset="utf-8"><title>Nuh uh buddy</title><style>body{margin:0;background:#101015;color:#f4f1fa;font:600 20px system-ui;display:grid;place-items:center;height:100vh;text-align:center}.hint{font:14px system-ui;color:#aaa}</style><main>Nuh uh buddy.<p class="hint">Log in to BtrccStudy to play. Go back to the home page and enter 1010.</p></main>', 'text/html; charset=utf-8');
   }
   let file = decodedPath === '/' ? '/index.html' : decodedPath;
   if (file === '/admin' || file === '/admin/') file = '/index.html';
@@ -166,5 +166,5 @@ const server = http.createServer(async (req, res) => {
   if (!full.startsWith(publicRoot + path.sep)) return send(res, 400, 'Bad request');
   fs.readFile(full, (err, data) => err ? send(res, 404, 'Not found') : send(res, 200, data, mime[path.extname(full)] || 'application/octet-stream'));
 });
-server.listen(PORT, () => console.log(`BtrccGames is running at http://localhost:${PORT}`));
+server.listen(PORT, () => console.log(`BtrccStudy is running at http://localhost:${PORT}`));
 
